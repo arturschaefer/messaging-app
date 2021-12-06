@@ -9,7 +9,6 @@ ext.versions = [
         //essential kotlin and gradle
         gradle                 : '7.0.3',
         kotlin                 : '1.6.0',
-        kotlin_compile_plugin  : '1.5.30',
         gradle_plugin          : '1.6.0',
         jvmTarget              : '11',
         ktx                    : '1.7.0',
