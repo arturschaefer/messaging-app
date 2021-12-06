@@ -1,0 +1,51 @@
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    Properties properties = new Properties()
+    if (rootProject.file("local.properties").exists()) {
+        properties.load(rootProject.file("local.properties").newDataInputStream())
+    }
+
+    buildTypes {
+        debug {
+            // Nothing to do yet
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    // Android
+    implementation "androidx.core:core-ktx:$versions.ktx"
+    implementation "androidx.appcompat:appcompat:$versions.appcompat"
+
+    // Square
+    implementation "com.jakewharton.timber:timber:$versions.timber"
+
+    // Koin
+    implementation "io.insert-koin:koin-android:$versions.koin"
+
+    // Tests
+    testImplementation "junit:junit:$versions.junit"
+    testImplementation "io.mockk:mockk:$versions.mockk"
+    testImplementation "androidx.arch.core:core-testing:$versions.arch_core"
+    androidTestImplementation "androidx.arch.core:core-testing:$versions.arch_core"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutines_test"
+}

@@ -1,0 +1,22 @@
+buildscript {
+    apply from: "$rootDir/dependencies.gradle"
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$versions.gradle"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.gradle_plugin"
+        classpath "com.google.gms:google-services:$versions.google_services"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
