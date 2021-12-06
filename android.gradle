@@ -40,6 +40,9 @@ dependencies {
     implementation "androidx.core:core-ktx:$versions.ktx"
     implementation "androidx.appcompat:appcompat:$versions.appcompat"
 
+    // Google
+    implementation "com.google.android.material:material:$versions.material"
+
     // Square
     implementation "com.jakewharton.timber:timber:$versions.timber"
 
