@@ -12,31 +12,13 @@ ext.versions = [
         kotlin_compile_plugin  : '1.5.30',
         gradle_plugin          : '1.6.0',
         jvmTarget              : '11',
-
         ktx                    : '1.7.0',
 
         //Dependency Injection
         koin                   : "3.1.0",
 
-        //CameraX
-        cameraX                : "1.0.0-rc03",
-        cameraXOthers          : "1.0.0-alpha21",
-
         //ML Kit
         mlkit                  : "16.0.5",
-
-        //Architecture components
-        navigation             : '2.2.2',
-        nav_args               : '2.3.1',
-        lifecycle              : '2.4.0',
-        lifecycleJava          : '2.3.1',
-        paging3                : '3.0.0',
-
-        //Rx
-        rxjava                 : '3.0.0',
-        rx_android             : "2.0.1",
-        rx_kotlin              : "3.0.1",
-        rx_adapter             : "2.9.0",
 
         //Logging
         timber                 : '4.7.1',
@@ -44,63 +26,28 @@ ext.versions = [
         //Glide
         glide                  : '4.12.0',
 
-        //Network
-        okhttp                 : '4.7.2',
-        okhttp_interceptor     : '4.9.0',
-        retrofit               : '2.9.0',
-
         //Tests
         junit                  : '4.+',
         junit_ext              : '1.1.2',
         espresso               : '3.3.0',
-        mockito_kotlin         : '2.2.0',
         arch_core              : "2.1.0",
         mockk                  : "1.9.3",
         coroutines_test        : "1.3.2",
 
-        //Json serialization
-        gson                   : '2.8.7',
-        gson_converter         : '2.9.0',
-        serialization_json     : '1.0.1',
-        serialization_converter: '0.8.0',
-
         //UI
-        vector_drawable        : '1.1.0',
         legacy_support         : '1.0.0',
         recycler_view          : '1.2.1',
         swipe_refresh          : '1.1.0',
         constraint_layout      : '2.0.4',
         appcompat              : '1.4.0',
-        readmore               : '2.1.0',
-        palette                : '1.0.0',
         constraintlayout       : '2.1.2',
         fragment               : '1.4.0',
         activity               : '1.4.0',
         cardview               : '1.0.0',
         material               : '1.4.0',
-        compose                : '1.0.3',
-        compose_activity       : '1.4.0',
-
-        //Lottie
-        lottie                 : '3.7.0',
 
         //Room
         room                   : "2.3.0",
-
-        //Google Services
-        google_services        : "4.3.8",
-
-        //Firebase
-        firebase_bom           : "28.1.0",
-        firebase_auth          : "19.2.0",
-        firebase_common_ktx    : "19.5.0",
-        firebase_auth_ktx      : "21.0.1",
-
-        //RatingBar
-        rating_bar             : "1.4.0",
-
-        //Country
-        country                : "1.0.3",
 
         //Annotation
         annotation             : "1.2.0",
