@@ -40,6 +40,9 @@ dependencies {
     implementation "androidx.core:core-ktx:$versions.ktx"
     implementation "androidx.appcompat:appcompat:$versions.appcompat"
 
+    // Jetbrains
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
+
     // Google
     implementation "com.google.android.material:material:$versions.material"
 

@@ -6,7 +6,7 @@ ext.versions = [
         versionName            : '1.0.0',
         buildToolsVersion      : '31.0.0',
 
-        //gradle plugins
+        //essential kotlin and gradle
         gradle                 : '7.0.3',
         kotlin                 : '1.6.0',
         kotlin_compile_plugin  : '1.5.30',
