@@ -35,13 +35,13 @@ android {
         jvmTarget = versions.jvmTarget
     }
 
-
     buildFeatures {
         viewBinding true
     }
 
     lintOptions {
         baseline file("lint-baseline.xml")
+        abortOnError false
     }
 }
 
