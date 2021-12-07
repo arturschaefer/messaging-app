@@ -7,3 +7,10 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Messaging App"
 include ':app'
+
+// Libraries
+include ':libraries:uishared'
+include ':libraries:navigation'
+
+// Features
+include ':features:messagelist'
