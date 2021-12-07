@@ -1,0 +1,13 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+apply from: "$rootDir/android.gradle"
+
+android {
+    resourcePrefix 'messaging_list'
+
+    dependencies {
+        implementation project(path: ":libraries:uishared")
+    }
+}
