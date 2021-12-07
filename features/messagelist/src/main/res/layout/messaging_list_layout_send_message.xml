@@ -6,23 +6,22 @@
     android:elevation="@dimen/elevation_default">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextSendMessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
         android:layout_marginEnd="@dimen/margin_medium"
         android:layout_marginBottom="@dimen/margin_medium"
-        android:background="@drawable/bg_input"
         android:hint="It´s a muzmatch !!"
         android:padding="@dimen/margin_medium"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSendMessage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/button"
+        android:id="@+id/buttonSendMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_small"
@@ -30,7 +29,7 @@
         android:minWidth="@dimen/image_button_min_size"
         android:textColor="@android:color/white"
         android:src="@drawable/ic_send_24"
-        app:layout_constraintBottom_toBottomOf="@+id/editText"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextSendMessage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editText" />
+        app:layout_constraintTop_toTopOf="@+id/editTextSendMessage" />
 </androidx.constraintlayout.widget.ConstraintLayout>
