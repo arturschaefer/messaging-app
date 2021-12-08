@@ -20,7 +20,7 @@ ext.versions = [
         mlkit                  : "16.0.5",
 
         //Logging
-        timber                 : '4.7.1',
+        timber                 : '5.0.1',
 
         //Glide
         glide                  : '4.12.0',
