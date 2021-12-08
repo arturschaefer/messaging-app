@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.schaefer.messagelist.databinding.MessagingListActivityBinding
 import com.schaefer.uishared.extensions.toast
 
-internal class MessagingListActivity : AppCompatActivity() {
+internal class MessageListActivity : AppCompatActivity() {
     private lateinit var binding: MessagingListActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
