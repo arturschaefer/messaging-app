@@ -16,8 +16,8 @@
         <item name="colorSecondary">@color/reply_orange_500</item>
         <item name="colorSecondaryVariant">@color/reply_orange_400</item>
 
-        <item name="android:colorBackground">@color/reply_blue_50</item>
-        <item name="colorSurface">@color/reply_white_50</item>
+        <item name="android:colorBackground">@color/reply_white_50</item>
+<!--        <item name="colorSurface">@color/reply_white_50</item>-->
         <item name="colorError">@color/reply_red_400</item>
 
         <item name="colorOnPrimary">@color/reply_white_50</item>
@@ -27,8 +27,7 @@
         <item name="colorOnError">@color/reply_black_900</item>
 
         <item name="scrimBackground">@color/reply_white_50_alpha_060</item>
-        <item name="android:statusBarColor">@color/reply_blue_50_alpha_060</item>
-        <item name="android:navigationBarColor">@color/nav_bar</item>
+        <item name="android:statusBarColor">@color/reply_white_50</item>
 
         <!--System/Platform attributes-->
         <item name="android:windowBackground">?android:colorBackground</item>
