@@ -5,33 +5,37 @@
     android:layout_height="wrap_content"
     android:elevation="@dimen/elevation_default">
 
-    <EditText
-        android:id="@+id/editTextSendMessage"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutSendMessage"
+        style="@style/OutlinedRoundedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_medium"
-        android:hint="It´s a muzmatch !!"
-        android:padding="@dimen/margin_medium"
+        android:layout_margin="@dimen/margin_medium"
+        app:hintEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonSendMessage"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSendMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="It´s a muzmatch !!" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
         android:id="@+id/buttonSendMessage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginEnd="@dimen/margin_small"
         android:background="?android:selectableItemBackground"
         android:minWidth="@dimen/image_button_min_size"
         android:minHeight="@dimen/image_button_min_size"
-        android:src="@drawable/ic_send_24"
+        android:src="@drawable/bg_rounded_send_message"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextSendMessage"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutSendMessage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextSendMessage" />
+        app:layout_constraintTop_toTopOf="@+id/textInputLayoutSendMessage" />
 </androidx.constraintlayout.widget.ConstraintLayout>
