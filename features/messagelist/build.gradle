@@ -6,8 +6,9 @@ apply from: "$rootDir/android.gradle"
 
 android {
     resourcePrefix 'messaging_list'
+}
 
-    dependencies {
-        implementation project(path: ":libraries:uishared")
-    }
+dependencies {
+    implementation project(path: ":libraries:uishared")
+    implementation project(path: ':libraries:navigation')
 }

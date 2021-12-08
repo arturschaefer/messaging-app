@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:elevation="@dimen/elevation_default">
 
     <EditText
@@ -17,6 +17,7 @@
         android:padding="@dimen/margin_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonSendMessage"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,10 +26,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_small"
-        android:minHeight="@dimen/image_button_min_size"
+        android:background="?android:selectableItemBackground"
         android:minWidth="@dimen/image_button_min_size"
-        android:textColor="@android:color/white"
+        android:minHeight="@dimen/image_button_min_size"
         android:src="@drawable/ic_send_24"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/editTextSendMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/editTextSendMessage" />
