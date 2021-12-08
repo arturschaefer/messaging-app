@@ -63,4 +63,5 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$versions.arch_core"
     androidTestImplementation "androidx.arch.core:core-testing:$versions.arch_core"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutines_test"
+    testImplementation "io.insert-koin:koin-test:$versions.koin"
 }
