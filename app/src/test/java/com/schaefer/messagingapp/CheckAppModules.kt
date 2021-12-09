@@ -1,18 +1,47 @@
 package com.schaefer.messagingapp
 
+import androidx.test.core.app.ApplicationProvider
+import com.schaefer.messagelist.di.messageListModuleTest
 import com.schaefer.messagingapp.di.appModules
+import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
-import org.koin.dsl.koinApplication
+import org.junit.runner.RunWith
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
+import org.koin.core.module.Module
 import org.koin.test.KoinTest
 import org.koin.test.check.checkModules
+import org.koin.test.mock.MockProviderRule
+import org.mockito.Mockito
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
+@RunWith(RobolectricTestRunner::class)
+@Config(manifest = Config.NONE)
 class CheckAppModules : KoinTest {
+    private val appTestModules = mutableListOf<Module>().apply {
+        addAll(appModules)
+        add(messageListModuleTest)
+    }
+
+    @get:Rule
+    val mockProvider = MockProviderRule.create { clazz ->
+        Mockito.mock(clazz.java)
+    }
+
+    @Before
+    fun setup() {
+        stopKoin()
+    }
 
     @Test
     fun verifyKoinApp() {
-        koinApplication {
-            modules(appModules)
-            checkModules()
-        }
+        startKoin {
+            androidContext(ApplicationProvider.getApplicationContext())
+            allowOverride(true)
+            modules(appTestModules)
+        }.checkModules()
     }
 }

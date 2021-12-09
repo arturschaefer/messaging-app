@@ -1,37 +1,89 @@
 package com.schaefer.messagelist.presentation
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.schaefer.messagelist.domain.model.MessageText
+import com.schaefer.messagelist.domain.model.User
+import com.schaefer.messagelist.domain.repository.MessageRepository
+import com.schaefer.messagelist.domain.repository.UserRepository
+import com.schaefer.messagelist.presentation.model.MessageListVO
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-internal class MessageListViewModel : ViewModel() {
+// Create a resource provider and use values from dimens
+private const val BUTTON_ALPHA_DISABLED = 0.7f
+private const val BUTTON_ALPHA_ENABLED = 1f
 
-    fun getMessageList(): List<MessageText> {
-        return arrayListOf(
-            MessageText(
-                sendBy = "me",
-                message = "Lorem Ipsum",
-                utcTime = System.nanoTime().toString(),
-            ),
-            MessageText(
-                sendBy = "other",
-                message = "Lorem Ipsum",
-                utcTime = System.nanoTime().toString(),
-            ),
-            MessageText(
-                sendBy = "other",
-                message = "Lorem Ipsum",
-                utcTime = System.nanoTime().toString(),
-            ),
-            MessageText(
-                sendBy = "other",
-                message = "Lorem Ipsum is simply dummy text",
-                utcTime = System.nanoTime().toString(),
-            ),
-            MessageText(
-                sendBy = "me",
-                message = "It is a long established fact that a reader will be distracted",
-                utcTime = System.nanoTime().toString(),
-            )
+internal class MessageListViewModel(
+    private val messageListVO: MessageListVO,
+    private val messageRepository: MessageRepository,
+    private val userRepository: UserRepository
+) : ViewModel() {
+    val messageList =
+        messageRepository.getMessageList(messageListVO.chatId).asLiveData()
+
+    private val messageListMock = listOf(
+        MessageText(
+            sendBy = "me",
+            chatId = "1234",
+            message = "Lorem Ipsum",
+            time = System.nanoTime(),
+        ),
+        MessageText(
+            sendBy = "other",
+            chatId = "1234",
+            message = "Lorem Ipsum",
+            time = System.nanoTime(),
+        ),
+        MessageText(
+            sendBy = "other",
+            chatId = "1234",
+            message = "Lorem Ipsum",
+            time = System.nanoTime(),
+        ),
+        MessageText(
+            sendBy = "me",
+            chatId = "1234",
+            message = "It is a long established fact that a reader will be distracted",
+            time = System.nanoTime(),
         )
+    )
+
+    fun insertUsers() {
+        val userList = listOf(
+            User("User 1", "user1@test.com"),
+            User("User 2", "user2@test.com")
+        )
+        viewModelScope.launch(Dispatchers.IO) {
+            userRepository.saveAllUsers(userList)
+        }
+    }
+
+    fun sendMessage(chatId: String, message: String) {
+        val messageText = MessageText(
+            sendBy = "me",
+            chatId = chatId,
+            message = message,
+            time = System.nanoTime()
+        )
+        viewModelScope.launch(Dispatchers.IO) {
+            messageRepository.sendMessage(messageText)
+        }
+    }
+
+    fun sendMessages(): Boolean {
+        viewModelScope.launch(Dispatchers.IO) {
+            messageRepository.sendAllMessages(messageListMock)
+        }
+        return true
+    }
+
+    fun validateEditText(text: String?): Pair<Boolean, Float> {
+        return if (text.isNullOrEmpty()) {
+            Pair(false, BUTTON_ALPHA_DISABLED)
+        } else {
+            Pair(true, BUTTON_ALPHA_ENABLED)
+        }
     }
 }
