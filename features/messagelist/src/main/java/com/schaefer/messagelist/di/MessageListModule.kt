@@ -11,7 +11,9 @@ import com.schaefer.messagelist.domain.repository.MessageRepository
 import com.schaefer.messagelist.domain.repository.UserRepository
 import com.schaefer.messagelist.navigation.MessageListNavigationImpl
 import com.schaefer.messagelist.presentation.MessageListViewModel
+import com.schaefer.messagelist.presentation.model.MessageListVO
 import com.schaefer.navigation.MessageListNavigation
+import org.jetbrains.annotations.VisibleForTesting
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -37,6 +39,18 @@ val messageListModule = module {
     viewModel { params ->
         MessageListViewModel(
             messageListVO = params.get(),
+            userRepository = get(),
+            messageRepository = get(),
+        )
+    }
+}
+
+// TODO this was necessary to override MessageListViewModel without params while testing
+@VisibleForTesting
+val messageListModuleTest = module {
+    viewModel {
+        MessageListViewModel(
+            messageListVO = MessageListVO(""),
             userRepository = get(),
             messageRepository = get(),
         )
