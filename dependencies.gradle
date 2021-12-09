@@ -52,4 +52,7 @@ ext.versions = [
 
         //Annotation
         annotation       : "1.2.0",
+
+        //Coroutines
+        lifecycle        : "2.4.0",
 ]
