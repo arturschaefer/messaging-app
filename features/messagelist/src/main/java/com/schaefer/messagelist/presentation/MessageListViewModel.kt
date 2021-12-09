@@ -60,9 +60,10 @@ internal class MessageListViewModel(
         }
     }
 
-    fun sendMessage(chatId: String, message: String) {
+    // TODO pass the right userId
+    fun sendMessage(chatId: String, message: String, sendBy: String = "me") {
         val messageText = MessageText(
-            sendBy = "me",
+            sendBy = sendBy,
             chatId = chatId,
             message = message,
             time = System.currentTimeMillis()
