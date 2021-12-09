@@ -45,6 +45,7 @@ internal class MessageListFragment : Fragment() {
     }
 
     private fun setupListeners() {
+        validateButtonState()
         binding.includeSendMessageLayout.apply {
             buttonSendMessage.setOnClickListener {
                 messageListViewModel.sendMessage("1234", this.editTextSendMessage.text.toString())
@@ -52,12 +53,18 @@ internal class MessageListFragment : Fragment() {
             }
             buttonSendMessage.setOnLongClickListener { messageListViewModel.sendMessages() }
             editTextSendMessage.doAfterTextChanged {
-                val pair = messageListViewModel.validateEditText(it.toString())
-                buttonSendMessage.apply {
-                    isClickable = pair.first
-                    isEnabled = pair.first
-                    alpha = pair.second
-                }
+                validateButtonState(it.toString())
+            }
+        }
+    }
+
+    private fun validateButtonState(value: String = "") {
+        val pair = messageListViewModel.validateEditText(value)
+        binding.includeSendMessageLayout.apply {
+            buttonSendMessage.apply {
+                isClickable = pair.first
+                isEnabled = pair.first
+                alpha = pair.second
             }
         }
     }

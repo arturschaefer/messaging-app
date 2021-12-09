@@ -28,44 +28,45 @@ internal class MessageListViewModel(
             sendBy = "me",
             chatId = "1234",
             message = "Lorem Ipsum",
-            time = System.nanoTime(),
+            time = System.currentTimeMillis(),
         ),
         MessageText(
             sendBy = "other",
             chatId = "1234",
             message = "Lorem Ipsum",
-            time = System.nanoTime(),
+            time = System.currentTimeMillis(),
         ),
         MessageText(
             sendBy = "other",
             chatId = "1234",
             message = "Lorem Ipsum",
-            time = System.nanoTime(),
+            time = System.currentTimeMillis(),
         ),
         MessageText(
             sendBy = "me",
             chatId = "1234",
             message = "It is a long established fact that a reader will be distracted",
-            time = System.nanoTime(),
+            time = System.currentTimeMillis(),
         )
     )
 
     fun insertUsers() {
         val userList = listOf(
-            User("User 1", "user1@test.com"),
-            User("User 2", "user2@test.com")
+            User("User 1", "user1@test.com", ""),
+            User("User 2", "user2@test.com", "")
         )
         viewModelScope.launch(Dispatchers.IO) {
             userRepository.saveAllUsers(userList)
         }
     }
 
-    fun sendMessage(chatId: String, message: String) {
+    // TODO pass the right userId
+    fun sendMessage(chatId: String, message: String, sendBy: String = "me") {
         val messageText = MessageText(
-            sendBy = "me",
+            sendBy = sendBy,
             chatId = chatId,
             message = message,
-            time = System.nanoTime()
+            time = System.currentTimeMillis()
         )
         viewModelScope.launch(Dispatchers.IO) {
             messageRepository.sendMessage(messageText)
