@@ -14,7 +14,7 @@ ext.versions = [
         ktx              : '1.7.0',
 
         //Dependency Injection
-        koin             : "3.1.0",
+        koin             : "3.1.4",
 
         //ML Kit
         mlkit            : "16.0.5",
