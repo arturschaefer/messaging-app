@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_xlarge"
+        android:minWidth="@dimen/message_item_min_size"
         android:background="@drawable/bg_message_send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,8 +34,8 @@
 
         <ImageView
             android:id="@+id/imageViewMessageStatus"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
+            android:layout_width="@dimen/image_small_icon_size"
+            android:layout_height="@dimen/image_small_icon_size"
             app:layout_constraintBottom_toTopOf="@+id/textViewMessage"
             app:layout_constraintEnd_toEndOf="@+id/textViewMessage"
             app:layout_constraintHorizontal_bias="1.0"
