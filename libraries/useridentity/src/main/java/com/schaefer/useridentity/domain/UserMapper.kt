@@ -1,7 +1,7 @@
-package com.schaefer.messagelist.domain.mapper
+package com.schaefer.useridentity.domain
 
-import com.schaefer.messagelist.data.entity.UserEntity
-import com.schaefer.messagelist.domain.model.User
+import com.schaefer.useridentity.data.entity.UserEntity
+import com.schaefer.useridentity.domain.model.User
 
 internal fun UserEntity.toDomain(): User {
     return User(completeName = completeName, email = email, imageUrl = imageUrl)

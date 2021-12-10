@@ -14,7 +14,9 @@ import com.schaefer.messagelist.presentation.adapter.viewholder.MessageViewHolde
 private const val VIEW_TYPE_MESSAGE_SEND = 1
 private const val VIEW_TYPE_MESSAGE_RECEIVE = 2
 
-internal class MessageListAdapter : RecyclerView.Adapter<MessageViewHolder>() {
+internal class MessageListAdapter(
+    private val usedId: String
+) : RecyclerView.Adapter<MessageViewHolder>() {
 
     var messageList = emptyList<MessageText>()
         set(value) {
@@ -33,8 +35,7 @@ internal class MessageListAdapter : RecyclerView.Adapter<MessageViewHolder>() {
     override fun getItemViewType(position: Int): Int {
         val message = messageList[position]
 
-        // TODO pass logged user id
-        return if ("me" == message.sendBy) {
+        return if (usedId == message.sendBy) {
             VIEW_TYPE_MESSAGE_SEND
         } else {
             VIEW_TYPE_MESSAGE_RECEIVE

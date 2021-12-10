@@ -1,4 +1,4 @@
-package com.schaefer.messagelist.data.entity
+package com.schaefer.useridentity.data.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
