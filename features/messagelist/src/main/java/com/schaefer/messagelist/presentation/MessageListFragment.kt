@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.schaefer.messagelist.databinding.MessagingListFragmentBinding
 import com.schaefer.messagelist.presentation.adapter.MessageListAdapter
-import com.schaefer.messagelist.presentation.model.MessageListVO
+import com.schaefer.messagelist.presentation.model.ChatInfoVO
+import com.schaefer.navigation.BUNDLE_MESSAGE_LIST
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -17,11 +19,13 @@ internal class MessageListFragment : Fragment() {
     private var _binding: MessagingListFragmentBinding? = null
     private val binding get() = _binding!!
 
-    // TODO receive this value from argument or sharedViewModel
-    private val messageListViewModel: MessageListViewModel by viewModel {
-        parametersOf(MessageListVO("1234"))
+    private val chatInfoVO: ChatInfoVO by lazy {
+        arguments?.getParcelable<ChatInfoVO>(BUNDLE_MESSAGE_LIST) as ChatInfoVO
     }
-    private val messageListAdapter = MessageListAdapter()
+    private val messageListViewModel: MessageListViewModel by viewModel { parametersOf(chatInfoVO) }
+    private val messageListAdapter: MessageListAdapter by lazy {
+        MessageListAdapter(chatInfoVO.sendByUserId)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,7 +52,7 @@ internal class MessageListFragment : Fragment() {
         validateButtonState()
         binding.includeSendMessageLayout.apply {
             buttonSendMessage.setOnClickListener {
-                messageListViewModel.sendMessage("1234", this.editTextSendMessage.text.toString())
+                messageListViewModel.sendMessage(editTextSendMessage.text.toString())
                 editTextSendMessage.setText("")
             }
             buttonSendMessage.setOnLongClickListener { messageListViewModel.sendMessages() }
@@ -79,6 +83,14 @@ internal class MessageListFragment : Fragment() {
         messageListViewModel.messageList.observe(viewLifecycleOwner) {
             messageListAdapter.messageList = it
             binding.recyclerViewMessages.smoothScrollToPosition(it.size)
+        }
+    }
+
+    companion object {
+        fun newInstance(chatInfoVO: ChatInfoVO): MessageListFragment {
+            return MessageListFragment().apply {
+                arguments = bundleOf(BUNDLE_MESSAGE_LIST to chatInfoVO)
+            }
         }
     }
 }
