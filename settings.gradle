@@ -11,6 +11,7 @@ include ':app'
 // Libraries
 include ':libraries:uishared'
 include ':libraries:navigation'
+include ':libraries:useridentity'
 
 // Features
 include ':features:messagelist'
