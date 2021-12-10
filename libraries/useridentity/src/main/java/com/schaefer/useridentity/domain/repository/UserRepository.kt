@@ -1,6 +1,6 @@
-package com.schaefer.messagelist.domain.repository
+package com.schaefer.useridentity.domain.repository
 
-import com.schaefer.messagelist.domain.model.User
+import com.schaefer.useridentity.domain.model.User
 import kotlinx.coroutines.flow.Flow
 
 internal interface UserRepository {

@@ -1,10 +1,10 @@
-package com.schaefer.messagelist.data.repository
+package com.schaefer.useridentity.data.repository
 
-import com.schaefer.messagelist.data.dao.UserDao
-import com.schaefer.messagelist.domain.mapper.toDomain
-import com.schaefer.messagelist.domain.mapper.toEntity
-import com.schaefer.messagelist.domain.model.User
-import com.schaefer.messagelist.domain.repository.UserRepository
+import com.schaefer.useridentity.data.dao.UserDao
+import com.schaefer.useridentity.domain.model.User
+import com.schaefer.useridentity.domain.repository.UserRepository
+import com.schaefer.useridentity.domain.toDomain
+import com.schaefer.useridentity.domain.toEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
