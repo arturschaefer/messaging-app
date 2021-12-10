@@ -4,4 +4,4 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class MessageListVO(val chatId: String) : Parcelable
+data class UserVO(val userId: String, val firstName: String, val imageUrl: String) : Parcelable
