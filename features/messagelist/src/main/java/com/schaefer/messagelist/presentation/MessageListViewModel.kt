@@ -20,33 +20,6 @@ internal class MessageListViewModel(
     val messageList =
         messageRepository.getMessageList(chatInfoVO.chatId).asLiveData()
 
-    private val messageListMock = listOf(
-        MessageText(
-            sendBy = "me",
-            chatId = "1234",
-            message = "Lorem Ipsum",
-            time = System.currentTimeMillis(),
-        ),
-        MessageText(
-            sendBy = "other",
-            chatId = "1234",
-            message = "Lorem Ipsum",
-            time = System.currentTimeMillis(),
-        ),
-        MessageText(
-            sendBy = "other",
-            chatId = "1234",
-            message = "Lorem Ipsum",
-            time = System.currentTimeMillis(),
-        ),
-        MessageText(
-            sendBy = "me",
-            chatId = "1234",
-            message = "It is a long established fact that a reader will be distracted",
-            time = System.currentTimeMillis(),
-        )
-    )
-
     fun sendMessage(message: String) {
         val messageText = MessageText(
             sendBy = chatInfoVO.sendByUserId,
@@ -57,13 +30,6 @@ internal class MessageListViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             messageRepository.sendMessage(messageText)
         }
-    }
-
-    fun sendMessages(): Boolean {
-        viewModelScope.launch(Dispatchers.IO) {
-            messageRepository.sendAllMessages(messageListMock)
-        }
-        return true
     }
 
     fun validateEditText(text: String?): Pair<Boolean, Float> {
