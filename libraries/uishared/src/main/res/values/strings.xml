@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Messaging App</string>
+    <string name="message_day_hour"><![CDATA[<b>%1$s</b> %2$s]]></string>
 </resources>
