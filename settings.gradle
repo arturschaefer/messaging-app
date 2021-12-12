@@ -1,0 +1,17 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Messaging App"
+include ':app'
+
+// Libraries
+include ':libraries:uishared'
+include ':libraries:navigation'
+include ':libraries:useridentity'
+
+// Features
+include ':features:messagelist'

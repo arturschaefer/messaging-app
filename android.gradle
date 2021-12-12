@@ -1,0 +1,73 @@
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    Properties properties = new Properties()
+    if (rootProject.file("local.properties").exists()) {
+        properties.load(rootProject.file("local.properties").newDataInputStream())
+    }
+
+    buildTypes {
+        debug {
+            // Nothing to do yet
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.jvmTarget
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    // Android
+    implementation "androidx.core:core-ktx:$versions.ktx"
+    implementation "androidx.appcompat:appcompat:$versions.appcompat"
+
+    // Jetbrains
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
+
+    // Google
+    implementation "com.google.android.material:material:$versions.material"
+
+    // Square
+    implementation "com.jakewharton.timber:timber:$versions.timber"
+
+    // Koin
+    implementation "io.insert-koin:koin-android:$versions.koin"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$versions.glide"
+
+    // Tests
+    testImplementation "junit:junit:$versions.junit"
+    testImplementation "io.mockk:mockk:$versions.mockk"
+    testImplementation "androidx.arch.core:core-testing:$versions.arch_core"
+    androidTestImplementation "androidx.arch.core:core-testing:$versions.arch_core"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutines_test"
+    testImplementation "io.insert-koin:koin-test:$versions.koin"
+    testImplementation "io.insert-koin:koin-test-junit4:$versions.koin"
+    testImplementation "androidx.test:core-ktx:$versions.core_test"
+    testImplementation "org.robolectric:robolectric:$versions.roboletric"
+}

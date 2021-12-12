@@ -1,0 +1,18 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:angle="90"
+                android:endColor="@color/pink"
+                android:startColor="#f6b4b3"
+                android:type="linear" />
+        </shape>
+    </item>
+    <item
+        android:top="@dimen/margin_small"
+        android:bottom="@dimen/margin_small"
+        android:left="@dimen/margin_small"
+        android:right="@dimen/margin_small"
+        android:drawable="@drawable/ic_send_24"/>
+</layer-list>

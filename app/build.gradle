@@ -1,0 +1,16 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+apply from: "$rootDir/android.gradle"
+
+dependencies {
+    implementation project(path: ":libraries:navigation")
+    implementation project(path: ":features:messagelist")
+    // Android
+    implementation "androidx.activity:activity-ktx:$versions.activity"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+}
+
