@@ -16,7 +16,6 @@ private const val VIEW_TYPE_MESSAGE_SEND = 1
 private const val VIEW_TYPE_MESSAGE_RECEIVE = 2
 private const val ITEM_SECTION_HOUR_LIMIT = 1
 private const val MESSAGE_LIST_HOUR_MINIMAL_SIZE = 2
-private const val MESSAGE_LIST_ONE_MESSAGE = 1
 
 internal class MessageListAdapter(
     private val usedId: String
@@ -68,7 +67,7 @@ internal class MessageListAdapter(
     override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
         val message = messageList[position]
         when {
-            messageList.size == MESSAGE_LIST_ONE_MESSAGE -> holder.bind(
+            messageList.first() == message -> holder.bind(
                 message,
                 true
             )
