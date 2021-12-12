@@ -4,23 +4,44 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_small"
-    android:paddingStart="@dimen/margin_xlarge">
+    android:paddingStart="@dimen/margin_xlarge"
+    tools:ignore="RtlSymmetry">
+
+    <TextView
+        android:id="@+id/textViewDayHour"
+        style="@style/TextAppearance.MaterialComponents.Body2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:textColor="@color/grey_dark"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayoutMessageContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Thursday 11:59"
+        tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayoutMessageContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_xlarge"
-        android:minWidth="@dimen/message_item_min_size"
         android:background="@drawable/bg_message_send"
+        android:minWidth="@dimen/message_item_min_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textViewDayHour"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <TextView
             android:id="@+id/textViewMessage"
+            style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/margin_small"
