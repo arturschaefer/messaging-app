@@ -15,6 +15,7 @@ import org.jetbrains.annotations.VisibleForTesting
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
+import java.util.Locale
 
 val messageListModule = module {
     fun provideDatabase(context: Context): MessageListDatabase {
@@ -37,6 +38,8 @@ val messageListModule = module {
             messageRepository = get(),
         )
     }
+
+    factory<Locale> { Locale.getDefault() }
 }
 
 // TODO this was necessary to override MessageListViewModel without params while testing
